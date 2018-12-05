@@ -37,6 +37,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!--in order to release the package without main class-->
                     <layout>NONE</layout>
                 </configuration>
                 <executions>
