@@ -1,13 +1,13 @@
 package com.pierreveissi.sfpetclinic.services.map;
 
 import com.pierreveissi.sfpetclinic.model.Owner;
-import com.pierreveissi.sfpetclinic.services.CrudService;
+import com.pierreveissi.sfpetclinic.services.OwnerService;
 
 import java.util.Set;
 
 public class OwnerServiceMap
     extends AbstractMapService<Owner, Long>
-    implements CrudService<Owner, Long>
+    implements OwnerService
 {
 
   @Override
@@ -33,5 +33,10 @@ public class OwnerServiceMap
   @Override
   public void deleteById(Long id) {
     super.deleteById(id);
+  }
+
+  @Override
+  public Owner findByLastName(String lastName) {
+    return null;
   }
 }

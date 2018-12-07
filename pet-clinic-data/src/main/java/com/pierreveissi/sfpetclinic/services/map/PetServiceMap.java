@@ -1,13 +1,13 @@
 package com.pierreveissi.sfpetclinic.services.map;
 
 import com.pierreveissi.sfpetclinic.model.Pet;
-import com.pierreveissi.sfpetclinic.services.CrudService;
+import com.pierreveissi.sfpetclinic.services.PetService;
 
 import java.util.Set;
 
 public class PetServiceMap
     extends AbstractMapService<Pet, Long>
-    implements CrudService<Pet, Long>
+    implements PetService
 {
 
   @Override
