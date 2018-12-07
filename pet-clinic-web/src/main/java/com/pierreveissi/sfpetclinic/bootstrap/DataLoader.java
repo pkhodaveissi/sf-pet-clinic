@@ -4,8 +4,6 @@ import com.pierreveissi.sfpetclinic.model.Owner;
 import com.pierreveissi.sfpetclinic.model.Vet;
 import com.pierreveissi.sfpetclinic.services.OwnerService;
 import com.pierreveissi.sfpetclinic.services.VetService;
-import com.pierreveissi.sfpetclinic.services.map.OwnerServiceMap;
-import com.pierreveissi.sfpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +11,12 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
   private final OwnerService ownerService;
   private final VetService vetService;
-
-  public DataLoader(){
-    ownerService = new OwnerServiceMap();
-    vetService = new VetServiceMap();
+//@AutoWired // no need cuz spring handles constructor DI automatically
+  public DataLoader(OwnerService ownerService, VetService vetService){
+    this.ownerService = ownerService;
+    this.vetService = vetService;
   }
+
   @Override
   public void run(String... args) throws Exception {
     Owner owner1 = new Owner();

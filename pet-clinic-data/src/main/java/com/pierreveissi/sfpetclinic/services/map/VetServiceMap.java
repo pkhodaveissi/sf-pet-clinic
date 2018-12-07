@@ -3,14 +3,14 @@ package com.pierreveissi.sfpetclinic.services.map;
 import com.pierreveissi.sfpetclinic.model.Vet;
 import com.pierreveissi.sfpetclinic.services.CrudService;
 import com.pierreveissi.sfpetclinic.services.VetService;
-
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
+@Service
 public class VetServiceMap
     extends AbstractMapService<Vet, Long>
     implements VetService
 {
-
   @Override
   public Set<Vet> findAll() {
     return super.findAll();
