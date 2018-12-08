@@ -1,27 +1,48 @@
 package com.pierreveissi.sfpetclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.pierreveissi.sfpetclinic.model.BaseEntity;
 
-public abstract class AbstractMapService<Type, ID> {
-  protected Map<ID, Type> map = new HashMap<>();
-  Set<Type> findAll(){
+import java.util.*;
+
+public abstract class AbstractMapService<Type extends BaseEntity, ID extends Long> {
+  protected Map<Long, Type> map = new HashMap<>();
+
+  Set<Type> findAll() {
     return new HashSet<>(map.values());
   }
-  Type findById(ID id){
+
+  Type findById(ID id) {
     return map.get(id);
   }
-  Type save(ID id,Type obj){
-    map.put(id, obj);
+
+  Type save(Type obj) {
+    if (obj != null) {
+      if (obj.getId() == null) {
+        obj.setId(getNextId());
+      }
+      map.put(obj.getId(), obj);
+    } else {
+      throw new RuntimeException("Entity Obj cannot be null");
+    }
     return obj;
   }
-  void deleteById(ID id){
+
+  void deleteById(ID id) {
     map.remove(id);
   }
-  void delete(Type obj){
+
+  void delete(Type obj) {
     map.entrySet()
-        .removeIf(entry-> entry.getValue().equals(obj));
+        .removeIf(entry -> entry.getValue().equals(obj));
+  }
+
+  private Long getNextId() {
+    Long currentMapLength;
+    try {
+      currentMapLength = Collections.max(map.keySet());
+    }catch (NoSuchElementException e){
+      currentMapLength = 0L;
+    }
+    return  currentMapLength + 1;
   }
 }

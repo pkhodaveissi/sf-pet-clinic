@@ -24,7 +24,7 @@ public class OwnerServiceMap
 
   @Override
   public Owner save(Owner obj) {
-    return super.save(obj.getId(), obj);
+    return super.save(obj);
   }
 
   @Override
