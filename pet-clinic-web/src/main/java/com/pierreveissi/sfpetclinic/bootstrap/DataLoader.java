@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
   private final OwnerService ownerService;
   private final VetService vetService;
-//@AutoWired // no need cuz spring handles constructor DI automatically
   public DataLoader(OwnerService ownerService, VetService vetService){
     this.ownerService = ownerService;
     this.vetService = vetService;
