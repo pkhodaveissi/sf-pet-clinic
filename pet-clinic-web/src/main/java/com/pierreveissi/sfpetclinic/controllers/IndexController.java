@@ -9,4 +9,9 @@ public class IndexController {
   public String index(){
     return "index";
   }
+
+  @GetMapping({"/oups"})
+  public String errorHandler(){
+    return "comingsoon";
+  }
 }
