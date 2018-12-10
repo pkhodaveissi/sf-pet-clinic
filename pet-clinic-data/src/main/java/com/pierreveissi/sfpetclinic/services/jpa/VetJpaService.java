@@ -29,8 +29,8 @@ public class VetJpaService implements VetService {
 
   @Override
   public Vet findById(Long id) {
-    Optional<Vet> vetOptional = vetRepo.findById(id);
-    return vetOptional.orElse(null);
+    Optional<Vet> optionalVet = vetRepo.findById(id);
+    return optionalVet.orElse(null);
   }
 
   @Override
