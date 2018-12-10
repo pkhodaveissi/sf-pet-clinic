@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Profile("springjpa")
+@Profile("jpadata")
 public class VetJpaService implements VetService {
 
   private final VetRepo vetRepo;

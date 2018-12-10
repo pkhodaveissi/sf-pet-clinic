@@ -2,11 +2,13 @@ package com.pierreveissi.sfpetclinic.services.map;
 
 import com.pierreveissi.sfpetclinic.model.Pet;
 import com.pierreveissi.sfpetclinic.services.PetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"mapdata", "default"})
 public class PetMapService
     extends AbstractMapService<Pet, Long>
     implements PetService

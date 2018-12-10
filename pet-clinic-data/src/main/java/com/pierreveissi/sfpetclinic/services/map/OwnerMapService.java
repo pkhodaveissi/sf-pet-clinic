@@ -5,11 +5,13 @@ import com.pierreveissi.sfpetclinic.model.Pet;
 import com.pierreveissi.sfpetclinic.services.OwnerService;
 import com.pierreveissi.sfpetclinic.services.PetService;
 import com.pierreveissi.sfpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"mapdata", "default"})
 public class OwnerMapService
     extends AbstractMapService<Owner, Long>
     implements OwnerService
